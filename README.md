@@ -21,6 +21,7 @@ Features
   * YouTube links
   * Direct link to edit articles on Github
   * Pygments syntax highlighting
+  * Javascrip-based, site-wide static search
 
 
 Plugins
@@ -28,6 +29,7 @@ Plugins
 
 Plumage has built-in support for the following plugins:
 
+  * [`tipue_search`](https://github.com/getpelican/pelican-plugins/tree/master/tipue_search)
   * [`neighbors`
   ](https://github.com/getpelican/pelican-plugins/tree/master/neighbors)
   * [`pdf`](https://github.com/getpelican/pelican-plugins/tree/master/pdf)
@@ -80,7 +82,7 @@ Plumage can be customized by adding these optionnal parameters to your
   * `PIWIK_SITE_ID`: Specifies the ID of the site being tracked by Piwik.
   * `TIPUE_SEARCH`: When defined and evaluated to True, integrates [Tipue
     Search](http://www.tipue.com/search) (javascript search engine) into the
-    site. Requires the `tipue_search` plugin.
+    site. Requires the [`tipue_search`](https://github.com/getpelican/pelican-plugins/tree/master/tipue_search) plugin.
 
 Most of these [parameters are similar to `notmyidea`'s
 ](http://docs.getpelican.com/en/latest/settings.html#themes) (Pelican's default
@@ -115,9 +117,6 @@ TODO
 ----
 
   * Hack google search to integrate search result within theme design ?
-  * Replace Google custom search by https://swiftype.com/ ? Or better, static search:
-      * http://ralsina.com.ar/weblog/posts/standalone-search-in-nikola.html
-      * https://news.ycombinator.com/item?id=6958735
   * Use a big carousel for front-page articles (ex: http://twitter.github.com/bootstrap/examples/carousel.html ) + a bit of http://srobbin.com/jquery-plugins/backstretch/ to keep aspect-ratio
   * Check some web-dev essentials:
       * http://webdevchecklist.com/
@@ -179,6 +178,7 @@ Changelog
 
 * **0.7.dev** (unreleased)
   * Add option to bypass grabicon.com web service.
+  * Add static search based on Tipue Search.
 
 * **0.6** (2015-05-30)
   * Fix favicon rendering.
