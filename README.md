@@ -14,14 +14,16 @@ now the theme is supposed to be generic enough to have its own repository.
 Features
 --------
 
-  * Based on Twitter Bootstrap
-  * Project template
-  * Tags grouped by tiers
-  * External assets (Bootstrap, Jquery, etc...) uses CDN
-  * YouTube links
-  * Direct link to edit articles on Github
-  * Pygments syntax highlighting
-  * Javascrip-based, site-wide static search
+  * Based on [Bootstrap v2](http://getbootstrap.com/2.3.2/).
+  * [Solarized](http://ethanschoonover.com/solarized) code snippets via
+    [Pygments](http://pygments.org/) for syntax highlighting.
+  * Site-wide static search via [Tipue-search](http://www.tipue.com/search/).
+  * Project template.
+  * Tags grouped by tiers.
+  * External assets (Bootstrap, Jquery, etc...) uses [CDNjs
+  ](https://cdnjs.com/about).
+  * YouTube links.
+  * Direct link to edit articles on Github.
 
 
 Plugins
@@ -29,13 +31,13 @@ Plugins
 
 Plumage has built-in support for the following plugins:
 
-  * [`tipue_search`](https://github.com/getpelican/pelican-plugins/tree/master/tipue_search)
+  * [`tipue_search`
+  ](https://github.com/getpelican/pelican-plugins/tree/master/tipue_search)
   * [`neighbors`
   ](https://github.com/getpelican/pelican-plugins/tree/master/neighbors)
-  * [`pdf`](https://github.com/getpelican/pelican-plugins/tree/master/pdf)
   * [`related_posts`
   ](https://github.com/getpelican/pelican-plugins/tree/master/related_posts)
-  * [`typogrify`](https://github.com/getpelican/pelican-typogrify)
+  * [`typogrify`](https://pypi.python.org/pypi/typogrify)
 
 
 Settings
@@ -44,45 +46,30 @@ Settings
 Plumage can be customized by adding these optionnal parameters to your
 `pelicanconf.py` file:
 
-  * `SITE_THUMBNAIL`: Site's thumbnail URL as displayed in the header. Should
-  be a square image of at least 80x80 pixels.
-  * `SITE_THUMBNAIL_TEXT`: Text displayed behind site's thumbnail.
-  * `SITESUBTITLE`: Set the subtitle from the site's header.
-  * `MENUITEMS`: A list of tuples (Title, URL) for additional menu items to
-  appear at the beginning of the main menu.
-  * `GOOGLE_SEARCH`: [Google's Custom Search Engine
-  ](https://www.google.com/cse/) ID (e.g.
-  `partner-pub-0123456789098765:0123456789`) to activate blog specific search.
-  * `LEFT_SIDEBAR`, `RIGHT_SIDEBAR`: HTML content to put as-is in the left or
-  right sidebar.
-  * `ARTICLE_EDIT_LINK`: Generate an edit link besides each article. Can use
-  `%(slug)s` to include dynamic article's slug in the link.
-  * `PDF_PROCESSOR`: Set this to 'True' if you want to have a 'Download the
-  .pdf' link created, if you are using the PDF plugin.
-  * `SOCIAL`: A list of tuples (Title, URL) to appear in the first columns of
-  the footer.
-  * `SOCIAL_TITLE`: Overide the title of the first column of the footer.
-  Default value: `Social`.
-  * `LINKS`: A list of tuples (Title, URL) for links to appear in the second
-  column of the footer.
-  * `LINKS_TITLE`: Overide the title of the second column of the footer.
-  Default value: `Links`.
-  * `GRAB_ICONS`: Fetch link's icons from the grabicon.com web service. Default
-  value: `False`.
-  * `COPYRIGHT`: Additional copyright statement to add in the third column of
-  the footer.
-  * `DISCLAIMER`: Overide the Disclaimer notice that gets displayed at the
-  fourth column of the footer.
-  * `DISQUS_SITENAME`: Disqus sitename identifier.
-  * `GOOGLE_ANALYTICS`: Google Analytics unique identifier (e.g.
-  `UA-XXXX-YYYY`).
-  * `GOOGLE_ANALYTICS_DOMAIN`: Add the `_setDomainName` variable to Google
-  Analytics' Javascript code.
-  * `PIWIK_URL`: Base URL for the intended [Piwik](http://piwik.org) installation.
-  * `PIWIK_SITE_ID`: Specifies the ID of the site being tracked by Piwik.
-  * `TIPUE_SEARCH`: When defined and evaluated to True, integrates [Tipue
-    Search](http://www.tipue.com/search) (javascript search engine) into the
-    site. Requires the [`tipue_search`](https://github.com/getpelican/pelican-plugins/tree/master/tipue_search) plugin.
+Setting name | Default value | Description
+:--- |:--- |:---
+`ARTICLE_EDIT_LINK` | | Generate an edit link besides each article. Can use `%(slug)s` to include dynamic article's slug in the link.
+`COPYRIGHT` | | Additional copyright statement to add in the third column of the footer.
+`DISCLAIMER` | | Overide the Disclaimer notice that gets displayed at the fourth column of the footer.
+`DISQUS_SITENAME` | | Pelican can handle Disqus comments. Specify the Disqus sitename identifier here.
+`GOOGLE_ANALYTICS` | | Set to `UA-XXXXXXXX-Y` to activate Google Analytics.
+`GOOGLE_ANALYTICS_PROPERTY` | `"auto"` | Set to property to fine-tune Google Analytics tracking code.
+`GOOGLE_SEARCH` | | [Google's Custom Search Engine](https://www.google.com/cse/) ID (e.g. `partner-pub-0123456789098765:0123456789`) to activate blog specific search.
+`GRAB_ICONS` | `False` | Fetch link's icons from the grabicon.com web service.
+`LEFT_SIDEBAR` | | HTML content to put as-is in the left sidebar.
+`LINKS_WIDGET_NAME` | `"Links"` | Allows override of the name of the links widget.
+`LINKS` | | A list of tuples (Title, URL) for links to appear in the second column of the footer.
+`MENUITEMS`| | A list of tuples (Title, URL) for additional menu items to appear at the beginning of the main menu.
+`PIWIK_SITE_ID` | | ID for the monitored website. You can find the ID in the Piwik admin interface > Settings > Websites.
+`PIWIK_SSL_URL` | | If the SSL-URL differs from the normal Piwik-URL you have to include this setting too. (optional)
+`PIWIK_URL` | | URL to your [Piwik](http://piwik.org) server - without `http://` at the beginning.
+`RIGHT_SIDEBAR` | | HTML content to put as-is in the right sidebar.
+`SITESUBTITLE` | | A subtitle to appear in the header.
+`SITE_THUMBNAIL_TEXT` | | Text displayed behind site's thumbnail.
+`SITE_THUMBNAIL` | | Site's thumbnail URL as displayed in the header. Should be a square image of at least 80x80 pixels.
+`SOCIAL_WIDGET_NAME` | `"Social"` | Allows override of the name of the “social” widget.
+`SOCIAL` | | A list of tuples (Title, URL) to appear in the first columns of the footer.
+`TIPUE_SEARCH` | `False` | Activate [Tipue Search](http://www.tipue.com/search) (javascript search engine) into the site. Requires the [`tipue_search`](https://github.com/getpelican/pelican-plugins/tree/master/tipue_search) plugin.
 
 Most of these [parameters are similar to `notmyidea`'s
 ](http://docs.getpelican.com/en/latest/settings.html#themes) (Pelican's default
@@ -113,54 +100,20 @@ The theme is also sensible to this list of [standard Pelican parameters
   * `TAGS_SAVE_AS`
 
 
-TODO
-----
+FAQ
+---
 
-  * Hack google search to integrate search result within theme design ?
-  * Use a big carousel for front-page articles (ex: http://twitter.github.com/bootstrap/examples/carousel.html ) + a bit of http://srobbin.com/jquery-plugins/backstretch/ to keep aspect-ratio
-  * Check some web-dev essentials:
-      * http://webdevchecklist.com/
-      * https://github.com/getpelican/pelican-plugins/tree/master/w3c_validate
-      * https://github.com/dypsilon/frontend-dev-bookmarks
-  * Use custom jinja filters instead of heavy tag soup in my theme ? Example: https://bitbucket.org/sirex/blog/src/32c192ff7a10/pelican.conf.py#cl-53
-  * Add progressive image loading. See:
-      * https://github.com/vvo/lazyload
-      * https://github.com/tuupola/jquery_lazyload
-      * https://github.com/luis-almeida/unveil
-  * Concatenate and minify CSS and Javascript. See:
-      * https://pypi.python.org/pypi/mincss
-      * http://ralsina.com.ar/weblog/posts/mincss-is-amazing.html
-      * https://pypi.python.org/pypi/pelican-minify
-      * https://github.com/getpelican/pelican-plugins/tree/master/assets
-  * Inline and embed all CSS in the page ? See: http://www.peterbe.com/plog/100-percent-inline-css
-  * Use LESS version of bootstrap for cleaner customizations ?
-  * Check and fix style on mobile (especially ugly margins)
-  * Look at app-template for code inspiration and ideas:
-      *  https://github.com/nprapps/app-template/blob/master/templates/_base.html
-      *  https://github.com/nprapps/app-template/blob/master/render_utils.py
-  * Make Masonry responsive ? See:
-      * http://osvaldas.info/responsive-jquery-masonry-or-pinterest-style-layout
-      * http://deanclatworthy.com/2012/09/responsive-twitter-bootstrap-masonry/
-      * http://www.maurizioconventi.com/2012/06/19/responsive-example-integrating-twitter-bootstrap-and-jquery-masonry/
-  * Add progressive loading on masonery layouts. See: http://masonry.desandro.com/demos/infinite-scroll.html
-  * Generate thumbnails in article content. See:
-      * https://github.com/getpelican/pelican-plugins/pull/40
-      * https://github.com/getpelican/pelican-plugins/pull/43
-  * Auto-enhance created thumbnails ? See: https://news.ycombinator.com/item?id=5999201
-  * Generate Disqus static comments for SEO ? See: https://github.com/getpelican/pelican-plugins/tree/master/disqus_static
-  * Group contiguous images in a post into a tiled galery:
-      * as in WordPress' jetpack plugin: https://github.com/crowdfavorite-mirrors/wp-jetpack/tree/master/modules/tiled-gallery
-      * or thanks to https://github.com/jakobholmelund/fitpicsjs
-  * Replace MGlass zoom icon overlay with pure CSS. Inspirations:
-      * Cover effect at http://h5bp.github.io/Effeckt.css/dist/captions.html
-      * http://codepen.io/Twikito/pen/Jeaub
-      * To center the zoom icon, we can use one of these trick: http://codepen.io/shshaw/full/gEiDt
-  * CSS typography: http://www.newnet-soft.com/blog/csstypography
-  * Add links to yearly/monthly indexes in archives
-  * Upgrade to Bootstrap 3.x
-  * Use http://startbootstrap.com/modern-business for first page ?
-  * Try to paginate monthly and yearly archives
-  * Reuse edit link logic from https://github.com/pmclanahan/pelican-edit-url ?
+**How can I disable the zoom on images?**
+
+All images of an article are zoomable by default. You can deactivate the
+magnifying glass per-image by adding a `noZoom` CSS class. So instead of the
+following Markdown code:
+
+    ![Image title](/folder/image.png)
+
+You have to use the following template to deactivate the zoom of an image:
+
+    ![Image title](/folder/image.png){: .noZoom}
 
 
 Contributors
@@ -171,14 +124,31 @@ Contributors
   * [Jeff Smith](https://github.com/jeffreyksmithjr)
   * [Stratos Gerakakis](https://github.com/stratosgear)
   * [Renato Cunha](https://github.com/trovao)
+  * [Florian Wilhelm](https://github.com/FlorianWilhelm)
 
 
 Changelog
 ---------
 
-* **0.7.dev** (unreleased)
+* **0.8.dev** (unreleased)
+  * Remove legacy Google Analytics tracking code.
+  * Rename `GOOGLE_ANALYTICS_UNIVERSAL` option by `GOOGLE_ANALYTICS` and
+  `GOOGLE_ANALYTICS_UNIVERSAL_PROPERTY` by `GOOGLE_ANALYTICS_PROPERTY`.
+  * Set default `GOOGLE_ANALYTICS_PROPERTY` value to `"auto"`.
+  * Allow deactivation of zoom on article's images.
+
+* **0.7** (2015-12-28)
   * Add option to bypass grabicon.com web service.
   * Add static search based on Tipue Search.
+  * Add new `LINKS_WIDGET_NAME` and `SOCIAL_WIDGET_NAME` options to mirror
+    upcoming Pelican 3.7.
+  * Align Piwik and Google Analytics code to Pelican's `notmyidea` theme.
+  * Add support for newer Google Analytics Universal embed code, via new
+    `GOOGLE_ANALYTICS_UNIVERSAL` and `GOOGLE_ANALYTICS_UNIVERSAL_PROPERTY`
+    options.
+  * Upgrade to jQuery 2.1.4.
+  * Upgrade to Masonry 3.3.2.
+  * Remove `PDF_PROCESSOR` option now that plugin is out of core.
 
 * **0.6** (2015-05-30)
   * Fix favicon rendering.
@@ -193,7 +163,8 @@ Changelog
 * **0.4** (2014-02-15)
   * Allow grouping of projects.
   * Add option to overide disclaimer notice.
-  * Generate tags, categories and archives URLs depending on site configuration.
+  * Generate tags, categories and archives URLs depending on site
+    configuration.
   * Sort out inactive projects to the bottom of the project list.
   * Drop support of old browsers.
   * Move from jQuery 1.x to 2.x.
@@ -234,7 +205,7 @@ Changelog
 License
 -------
 
-The content of this repository is copyrighted (c) 2012-2015 Kevin Deldycke.
+The content of this repository is copyrighted (c) 2012-2016 Kevin Deldycke.
 
 This code is free software: you can redistribute it and/or modify it under the
 terms of the GNU General Public License as published by the Free Software

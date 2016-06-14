@@ -156,9 +156,9 @@
       <div class="container">
         <div class="row">
 
-          {% set SOCIAL_TITLE = SOCIAL_TITLE or 'Social' %}
-          {% set LINKS_TITLE  = LINKS_TITLE  or 'Links'  %}
-          {% for group_title, group_links in ((SOCIAL_TITLE, SOCIAL), (LINKS_TITLE, LINKS)) %}
+          {% set SOCIAL_WIDGET_NAME = SOCIAL_WIDGET_NAME or 'Social' %}
+          {% set LINKS_WIDGET_NAME = LINKS_WIDGET_NAME or 'Links' %}
+          {% for group_title, group_links in ((SOCIAL_WIDGET_NAME, SOCIAL), (LINKS_WIDGET_NAME, LINKS)) %}
             <div class="span2">
               {% if group_links %}
                 <h5>{{ group_title }}</h5>
@@ -236,7 +236,7 @@
     </footer>
 
     {% include "analytics.html" %}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.1.0/jquery.fitvids.min.js"></script>
