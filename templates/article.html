@@ -17,10 +17,15 @@
 {% block right_sidebar %}
   <div class="well">
 
-    <p><abbr class="fa fa-calendar" title="{{ article.date.isoformat() }}"> {{ article.locale_date }}</abbr></p>
+    <p><abbr title="{{ article.date.isoformat() }}"><i class="fa fa-calendar"></i> {{ article.locale_date }}</abbr></p>
 
-    {% if AUTHOR_SAVE_AS and article.author %}
-      <p><address class="fa fa-user"> By <a href="{{ SITEURL }}/{{ article.author.url }}" rel="author">{{ article.author }}</a></address></p>
+    {% if AUTHOR_SAVE_AS and article.authors %}
+      <p><address>
+        <i class="fa fa-user"></i> By
+        {% for author in article.authors %}
+          <a href="{{ SITEURL }}/{{ author.url }}" rel="author">{{ author.name }}</a>
+        {% endfor %}
+      </address></p>
     {% endif %}
 
     <hr/>
@@ -31,7 +36,9 @@
           {% for category, articles in categories %}
             {% if category.url == article.category.url %}
               {% set article_counter = articles|length() %}
-              <a href="{{ SITEURL }}/{{ article.category.url }}" rel="tag tooltip" class="label label-info" data-placement="right" data-original-title="{{ article_counter }} article{{ 's' if article_counter > 1 else '' }} in this category">{{ article.category }}</a>
+              <a href="{{ SITEURL }}/{{ article.category.url }}" rel="tag"
+                  data-toggle="tooltip" class="label label-info"
+                  title="{{ article_counter }} article{{ 's' if article_counter > 1 else '' }} in this category">{{ article.category }}</a>
             {% endif %}
           {% endfor %}
         {% endif %}
@@ -68,10 +75,20 @@
     {% endif %}
 
     {% if article.prev_article or article.next_article %}
-      <ul class="pager">
-        <li class="previous {% if not article.prev_article %} disabled {% endif %}"><a {% if article.prev_article %} href="{{ SITEURL }}/{{ article.prev_article.url }}" title="{{ article.prev_article.title|striptags|e }}" {% endif %} rel="prev">← Older</a></li>
-        <li class="next {% if not article.next_article %} disabled {% endif %}"><a {% if article.next_article %} href="{{ SITEURL }}/{{ article.next_article.url }}" title="{{ article.next_article.title|striptags|e }}" {% endif %} rel="next">Newer →</a></li>
-      </ul>
+      <nav>
+        <ul class="pager">
+          <li class="previous {% if not article.prev_article %} disabled {% endif %}">
+            <a {% if article.prev_article %} href="{{ SITEURL }}/{{ article.prev_article.url }}" title="{{ article.prev_article.title|striptags|e }}" {% endif %} rel="prev">
+              <span aria-hidden="true">←</span> Older
+            </a>
+          </li>
+          <li class="next {% if not article.next_article %} disabled {% endif %}">
+            <a {% if article.next_article %} href="{{ SITEURL }}/{{ article.next_article.url }}" title="{{ article.next_article.title|striptags|e }}" {% endif %} rel="next">
+              Newer <span aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     {% endif %}
 
   </div>
@@ -88,7 +105,7 @@
 
   {% if article.related_posts %}
     <h3>Related content</h3>
-    <!-- TODO: Use fancier related layout, as in http://kevin.deldycke.com/2012/04/beautify-contextual-related-posts-wordpress-plugin/ -->
+    <!-- TODO: Use fancier related layout, as in https://kevin.deldycke.com/2012/04/beautify-contextual-related-posts-wordpress-plugin/ -->
     <ul>
       {% for related_post in article.related_posts %}
         <li><a href="{{ SITEURL }}/{{ related_post.url }}">{{ related_post.title }}</a></li>
@@ -106,11 +123,11 @@
         var disqus_url = "{{ SITEURL }}/{{ article.url }}";
         (function() {
           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus</a>.</noscript>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.</noscript>
     </div>
   {% endif %}
 

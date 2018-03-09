@@ -2,9 +2,10 @@
   $(function(){
 
     // Activate Bootstrap's tooltips
-    $("[rel*=tooltip]").tooltip();
+    $('[data-toggle="tooltip"]').tooltip()
 
-    // Subnav fixing code from https://github.com/thomaspark/bootswatch/blob/gh-pages/js/application.js
+    // Subnav fixing code from
+    // https://github.com/thomaspark/bootswatch/blob/gh-pages/2/js/bootswatch.js
     var $win = $(window)
       , $nav = $('.navbar')
       , navTop = $('.navbar').length && $('.navbar').offset().top
@@ -22,14 +23,19 @@
       }
     };
 
-    // Add bootstrap table style to table elements
+    // TODO: this should be done server side with a Jinja or Markdown
+    // extension.
+    // Add bootstrap table style to table elements.
     $("#content table").addClass('table').addClass('table-hover');
+    // Make images responsive in article content, which was the default in
+    // Bootstrap 2.x. See: https://getbootstrap.com/css/#images-responsive
+    $("#content img").addClass('img-responsive');
 
     // Allow videos to take the full width of a page
     $(".container").fitVids();
 
     // Apply masonry smart layout, only when all images are loaded
-    // Source: http://stackoverflow.com/a/7257177
+    // Source: https://stackoverflow.com/a/7257177
     // TODO: try to hide re-pagination animation
     // TODO: enhance with bottom animation. See:
     // https://github.com/codrops/GridLoadingEffects/blob/master/index2.html
@@ -44,7 +50,7 @@
         });
     }
 
-    // YouTube URL parser. Source: http://stackoverflow.com/questions/2964678/jquery-youtube-url-validation-with-regex/10315969#10315969
+    // YouTube URL parser. Source: https://stackoverflow.com/questions/2964678/jquery-youtube-url-validation-with-regex/10315969#10315969
     function parse_youtube_url(url) {
       var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
       return (url.match(p)) ? RegExp.$1 : false;
